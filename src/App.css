@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+* {
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper-div {
+  width: 80%;
+  min-height: 100px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movie-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-item {
+  position: relative; /* Set position to relative for overlay */
+  flex-basis: calc(33.33% - 20px); /* Three columns with spacing */
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.img-div {
+  width: 100%;
+  height: 400px; /* Set a fixed height for the images */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
   color: white;
+  padding: 5px; /* Add some padding for readability */
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Align the title to the left */
+  align-items: center; /* Center vertically within the overlay */
 }
 
-.App-link {
-  color: #61dafb;
+/* Enlarge the image on hover */
+.movie-item:hover {
+  transform: scale(1.05); /* Scale up to 105% when hovered */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Styles for medium-sized screens */
+@media screen and (max-width: 768px) {
+  .movie-item {
+    flex-basis: calc(50% - 20px); /* Two columns with spacing */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Styles for smaller screens */
+@media screen and (max-width: 480px) {
+  .movie-item {
+    flex-basis: calc(100% - 20px); /* Single column with spacing */
   }
+}
+
+.nav-div {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightgray;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.logo-div {
+  width: 100%;
+  padding-left: 2%;
+}
+
+.search-div {
+  height: 30px; /* Reduce the height */
+  margin-right: 10px;
 }
